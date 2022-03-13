@@ -1,0 +1,795 @@
+<!--Hour 9 I've added transparency to the hero image and 
+    fixed the responsiveness of the profile section. I played a bit
+with the projects section too. I have some extra whitespace on the right
+side when I decrease the window size to the minimum. I was trying to 
+fix it (experimenting with the overflow property) but I wasn't able to fix 
+it in time.-->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<style>
+    /*
+       * {
+        overflow: auto;
+    }
+*/
+    body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 0;
+        padding: 0px;
+        background: linear-gradient(90deg, rgba(119, 122, 119, 0.6), rgba(202, 207, 202, 0.8), rgba(31, 41, 55, 0.4));
+    }
+
+    /* Header section */
+    header {
+        background-color: #1F2937;
+        display: flex;
+        justify-content: center;
+    }
+
+    #navigation {
+        max-height: 200px;
+        min-height: 50px;
+        background-color: rgba(249, 250, 248, 0.85);
+        display: flex;
+        flex-direction: row;
+        max-width: 1000px;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 10;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50%;
+        margin-left: 0;
+    }
+
+    ul {
+        height: 50%;
+        display: flex;
+        padding: 0;
+        flex-wrap: wrap;
+    }
+
+    header a {
+        color: #1F2937;
+        padding: 5px;
+        margin-right: 10px;
+    }
+
+    header a:hover {
+        color: black;
+        font-weight: 800;
+    }
+
+    a {
+        text-decoration: none;
+        list-style: none;
+        height: 50%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Hero section */
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    #hero {
+        width: auto;
+    }
+
+    .bg-img {
+        width: 100%;
+        padding-top: 100%;
+        background: url(https://i.ibb.co/fMDm1YR/hero-image.jpg) no-repeat center;
+        background-size: cover;
+        opacity: 0.7;
+    }
+
+    .herotext {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    @media (max-width: 700px) {
+
+        .herotext {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #E5E7E5;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+
+        hr {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .herotext {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #E5E7E5;
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+
+        hr {
+            width: 100%;
+            margin-top: 0px;
+            margin-bottom: 0px;
+
+        }
+    }
+
+
+    h1 {
+        font-size: 60px;
+        color: #E5E7E5;
+        font-weight: 900;
+    }
+
+    #hero h2 {
+        color: #e5e7eb;
+    }
+
+    h2 {
+        font-size: 42px;
+        color: #777a77;
+        font-weight: 600;
+    }
+
+    hr {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 16px;
+        color: rgba(138, 43, 226, 0.4);
+    }
+
+    /* Profile section */
+    quote,
+    span {
+        padding: 16px;
+    }
+
+    quote {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    #profile,
+    #experience,
+    #projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(249, 250, 248);
+    }
+
+    .profile-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-bottom {
+        display: flex;
+        width: 90%;
+        max-width: 1000px;
+        justify-content: space-around;
+        margin-bottom: 20px;
+
+    }
+
+    .profile-bottom img {
+        min-width: 150px;
+        width: 70%;
+        height: 70%;
+        border: #1F2937 4px solid;
+        border-radius: 50%;
+        margin: 20px;
+    }
+
+    .details {
+        width: 70%;
+    }
+
+    @media (max-width:600px) {
+        .profile-bottom {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .details h4 {
+            text-align: end;
+        }
+
+    }
+
+    #education,
+    #skills,
+    #contact {
+        background-color: #E5E7E5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4,
+    h3 {
+        color: #1F2937;
+    }
+
+    .education-top,
+    .experience-top,
+    .skills-top,
+    .projects-top,
+    .contact-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education-top span,
+    .experience-top span,
+    .skills-top span,
+    .projects-top span,
+    .contact-top span {
+        align-self: flex-end;
+    }
+
+    .education-row,
+    .experience-row,
+    .skills-row {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 0px 5px;
+    }
+
+    #projecsts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #projects .container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+        gap: 1em;
+        margin-top: 1em;
+        margin-bottom: 3em;
+    }
+
+    .projects-item {
+        position: relative;
+        width: 400px;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .first {
+        border-top: #1F2937 solid 6px;
+        border-left: #1F2937 solid 6px;
+        box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.59);
+    }
+
+    .second {
+        border-right: #1F2937 solid 6px;
+        border-top: #1F2937 solid 6px;
+        box-shadow: 10px -10px 10px rgba(0, 0, 0, 0.59);
+    }
+
+    .third {
+        border-left: #1F2937 solid 6px;
+        border-bottom: #1F2937 solid 6px;
+        box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.59);
+    }
+
+    .fourth {
+        border-right: #1F2937 solid 6px;
+        border-bottom: #1F2937 solid 6px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.59);
+    }
+
+    #contact img {
+        max-width: 100px;
+        width: 50%;
+        height: 50%;
+    }
+
+    #contact .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .container-item {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer {
+        background-color: #1F2937;
+        display: flex;
+        justify-content: center;
+    }
+
+    footer a {
+        color: #E5E7E5;
+        padding: 5px;
+        margin-right: 0px;
+    }
+
+    footer a:hover {
+        color: rgba(249, 250, 248, 0.5);
+        font-weight: 800;
+        background-color: rgba(119, 122, 119, 0.2);
+    }
+
+    #education h2,
+    #skills h2,
+    #contact h2 {
+        font-size: 42px;
+        color: #1F2937;
+        font-weight: 600;
+    }
+
+    #hero,
+    #profile,
+    #education,
+    #experience,
+    #skills,
+    #projects,
+    #contact {
+        margin-bottom: 24px;
+    }
+
+    #skills .container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .container-skill {
+        position: relative;
+        width: 35vh;
+        min-height: 10vh;
+        display: flex;
+        justify-content: cener;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media (min-width: 900px) {
+
+        .container-skill {
+            width: 60vh;
+        }
+
+        .line-box {
+            width: 60%;
+        }
+
+    }
+
+    .skill {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .line-box {
+        padding: 2px;
+        width: 40%;
+        height: 20px;
+        border: 2px solid #cacfca;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+    }
+
+    .line {
+        height: 20px;
+        border-radius: 20px;
+        background: #777a77;
+        animation: loading 5s forwards ease;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes loading {
+        0% {
+            width: 2%;
+        }
+
+        60% {
+            width: calc(var(--width, 20)*1% - 2%);
+
+        }
+
+        100% {
+            width: calc(var(--width, 20)*1%);
+        }
+    }
+
+    span a {
+        color: #1F2937;
+    }
+
+    span a:hover {
+        background-color: rgba(119, 122, 119, 0.3);
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <!-- my visual studio added this line, I don't know what it means so I will delete it here. 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Dzemal Jukic Resume
+    </title>
+</head>
+
+<body>
+    <header id="header">
+        <nav id="navigation">
+            <img class="logo" src="https://i.ibb.co/sgvJ2GX/bildit.png" alt="bildit image">
+            <ul>
+                <a href="#profile">
+                    <li>Profile</li>
+                </a>
+                <a href="#education">
+                    <li>Education</li>
+                </a>
+                <a href="#experience">
+                    <li>Experience</li>
+                </a>
+                <a href="#skills">
+                    <li>Skills</li>
+                </a>
+                <a href="#projects">
+                    <li>Projects</li>
+                </a>
+                <a href="#contact">
+                    <li>Contact</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <section id="hero">
+        <div class="bg-img">
+            <div class="herotext">
+                <h1>Dzemal Jukic</h1>
+                <hr>
+                <h2>Resume Webpage</h2>
+            </div>
+        </div>
+
+    </section>
+    <section id="profile">
+        <div class="profile-top">
+            <h2>Profile</h2>
+            <span style="font-size: 36px;">I'm a passionate Frontend developer</span>
+            <hr>
+        </div>
+        <div class="profile-bottom">
+            <div id="about">
+                <h3>About me</h3>
+                <p> I am a reliable career-focused developer working with front-end and back-end portions of an
+                    application covering every aspect of web developing process. I have the most experience in the MERN
+                    stack however I always welcome the opportunity to learn new skills while building challenging
+                    innovative applications. I keep my cool in stressful situations and I enjoy working in creative
+                    environments. </p>
+
+            </div>
+            <img clas="profile-picture" src="https://i.ibb.co/KxqHwHc/dzemaljukic-resume.jpg"
+                alt="Dzemal Jukic profile picture">
+            <div class="details">
+                <h3>Details</h3>
+                <div>
+                    <span>Name:</span>
+                    <h4>Dzemal Jukic</h4>
+                    <span>Age:</span>
+                    <h4>25</h4>
+                    <span>Location:</span>
+                    <h4>Srebrenik, Bosnia and Herzegovina</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="education">
+        <div class="education-top">
+            <h2>Education</h2>
+            <quote>"Education is what remains after one has forgotten what one has learned in school."</quote>
+            <span>-Albert Einstein</span>
+            <hr>
+        </div>
+
+        <div class="container ">
+            <div class="education-row">
+                <div class="education-item">
+                    <h3 class="education-title">BILD IT Academy</h3>
+                    <span class="education-time">February 2022 - March 2022</span>
+                </div>
+                <div class="education-description">
+                    <h4 class="education-description-title">Course - Full Stack Web Development</h4>
+                    <p class="education-description-text">BILD IT is a nonprofit which teaches people IT skills. Their
+                        course in Full Stack Web development is an 11 month program that takes individuals from 0 skills
+                        in web development to a full-time job in web development. In their course I learned HTML and CSS
+                        skills but also valuable skills about time management, punctuality and persistance.</p>
+                </div>
+            </div>
+            <div class="education-row">
+                <div class="education-item">
+                    <h3 class="education-title">University of Tuzla</h3>
+                    <span class="education-time">October 2015 - June 2020</span>
+                </div>
+                <div class="education-description">
+                    <h4 class="education-description-title">Bachelor - Mechanical Engineering (Specialization:
+                        Mechatronics)</h4>
+                    <p class="education-description-text">I studied to become a mechanical engineer. During my
+                        university years I have developed strong analytical skills and improved my self-confidence. I
+                        had little touch with IT during university.(Learned a bit of FORTRAN in my second year.) </p>
+
+                </div>
+            </div>
+            <div class="education-row">
+                <div class="education-item">
+                    <h3 class="education-title">High School Srebrenik</h3>
+                    <span class="education-time">September 2011 - May 2015</span>
+                </div>
+                <div class="education-description">
+                    <h4 class="education-description-title">Gymnasium</h4>
+                    <p class="education-description-text">I finished high school as the best student of my generation.
+                        During high school I learned some HTML and SQL.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience">
+        <div class="experience-top">
+            <div class="experience-top">
+                <h2>Experience</h2>
+                <quote>"Experience is simply the name we give our mistakes."</quote>
+                <span>-Oscar Wilde"</span>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="experience-row">
+                <div class="experience-item">
+                    <h3 class="experience-title">DKR d.o.o. Tuzla</h3>
+                    <span class="experience-time">December 2019 - present</span>
+                </div>
+                <div class="experience-description">
+                    <h4 class="experience-description-title">Position: Industrial Automation Specialist</h4>
+                    <p class="experience-description-text">
+                        German Centre for Robotics in Tuzla is specialised in industrial robotics and industrial
+                        automation.They implement turnkey solutions and also offer hands-on PLC and industrial robots
+                        training. I have worked on various projects related to PLCs and robots in Bosnia and Herzegovina
+                        and Germany.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="skills-top">
+            <h2>Skills</h2>
+            <quote>"Programming is a skill best acquired by practice and example rather than from books"</quote>
+            <span>-Alan Turing</span>
+            <hr>
+        </div>
+        <div class="container">
+            <!-- &#9734; for hollow star
+                 &#9733; for full   star-->
+
+            <div class="cointaner-left">
+                <div class="skills-row">
+                    <div class="container-skill">
+                        <div class="text">
+                            <h3>HTML 5</h3>
+                        </div>
+                        <div class="skill">
+                            <div class="line-box">
+                                <div class="line" style="--width:100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-row">
+                    <div class="container-skill">
+                        <div class="text">
+                            <h3>CSS 3</h3>
+                        </div>
+                        <div class="skill">
+                            <div class="line-box">
+                                <div class="line" style="--width:100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-row">
+                    <div class="container-skill">
+                        <div class="text">
+                            <h3>JavaScript</h3>
+                        </div>
+                        <div class="skill">
+                            <div class="line-box">
+                                <div class="line" style="--width:20"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-right">
+                <div class="skills-row">
+                    <div class="container-skill">
+                        <div class="text">
+                            <h3>Bosnian</h3>
+                        </div>
+                        <div class="skill">
+                            <div class="line-box">
+                                <div class="line" style="--width:100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-row">
+                    <div class="container-skill">
+                        <div class="text">
+                            <h3>English</h3>
+                        </div>
+                        <div class="skill">
+                            <div class="line-box">
+                                <div class="line" style="--width:80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-row">
+                    <div class="container-skill">
+                        <div class="text">
+                            <h3>German</h3>
+                        </div>
+                        <div class="skill">
+                            <div class="line-box">
+                                <div class="line" style="--width:60"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <div class="projects-top">
+            <h2>Projects</h2>
+            <quote>"It does not matter how slowly you go so long as you do not stop."</quote>
+            <span>-Confucius</span>
+            <hr>
+        </div>
+        <div class="container">
+            <div clas="projects-item">
+                <img class="project-image first" src="https://i.ibb.co/nQ1SKbH/project1.png" alt="Project 1 image">
+            </div>
+            <div clas="projects-item">
+                <img class="project-image second" src="https://i.ibb.co/F084jBV/project2.jpg" alt="Project 2 image">
+            </div>
+
+            <div clas="projects-item">
+                <img class="project-image third" src="https://i.ibb.co/nDzWpVD/project3.jpg" alt="Project 3 image">
+            </div>
+
+            <div clas="projects-item">
+                <img class="project-image fourth" src="https://i.ibb.co/m0dm19w/project4.png" alt="Project 4 image">
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="contact-top">
+            <h2>Contact Me</h2>
+            <quote>"...here's my number, so call me, maybe" </quote>
+            <span>-Carly Rae Jepsen</span>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="container-item">
+                <img src="https://i.ibb.co/qFq1Fvy/twitter.png" alt="twitter icon">
+                <span><a href="https://twitter.com/dzemojuka" target="_blank"> https://twitter.com/dzemojuka</a></span>
+            </div>
+
+            <div class="container-item">
+                <img src="https://i.ibb.co/fSbKFJD/linkedin.png" alt="linkedin icon">
+                <span><a href="https://www.linkedin.com/in/dzemal-jukic-940aaa174/"
+                        target="_blank">https://www.linkedin.com/in/dzemal-jukic-940aaa174/</a></span>
+            </div>
+            <div class="container-item">
+                <img src="https://i.ibb.co/R30Y9Sr/email.png" alt="email icon">
+                <span><a href="#"> dzemo96@gmail.com</a></span>
+            </div>
+            <div class="container-item">
+                <img src="https://i.ibb.co/j4XBkLn/phone.png" alt="phone icon">
+                <span><a href="#"> +387 62 773 258</a></span>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <ul class="footer-nav">
+            <a href="#profile" <li>Profile</li></a>
+            <a href="#education" <li>Education</li></a>
+            <a href="#experience" <li>Experience</li></a>
+            <a href="#skills" <li>Skills</li></a>
+            <a href="#projects" <li>Projects</li></a>
+            <a href="#contact" <li>Contact</li></a>
+        </ul>
+    </footer>
+</body>
+
+</html>
